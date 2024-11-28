@@ -1,4 +1,5 @@
 <script setup>
+import { useCartStore } from '@/stores/cart';
 import { useCategoryStore } from '@/stores/category';
 import { useProductStore } from '@/stores/product';
 import{ref} from 'vue';
@@ -6,6 +7,7 @@ import{ref} from 'vue';
 
 const productStore = useProductStore();
 const categoryStore = useCategoryStore();
+const cartStore = useCartStore();
 const category = ref(null);
 const searchText = ref('');
 const products = ref([]);
@@ -53,7 +55,7 @@ const searchName = () => {
       </div>
       <div class="card-footer text-enm">
         <button type="button"  @click="$router.push(`/detail/${product.id}`)" class="btn btn-success me-2">Detail</button>
-        <RouterLink type="button" to="/cart" class="btn btn-danger">Cart</RouterLink>
+        <button type="button"  @click="cartStore.addToCart(product.id)" class="btn btn-danger">Cart</button>
       </div>
     </div>
   </div>
