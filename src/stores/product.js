@@ -55,9 +55,15 @@ export const useProductStore = defineStore ('product', () => {
         };
     });
 
+    const findProductById = computed (() => {
+        return (id) =>{
+            return products.value.find((product) => product.id == id );
+        }
+    })
 
     return{
         products,
         productsFilteredByCategoryName,
+        findProductById,
     }
 });

@@ -52,8 +52,8 @@ const searchName = () => {
         <p class="card-text">{{ product.category }}</p>
       </div>
       <div class="card-footer text-enm">
-        <button type="button" class="btn btn-success me-2">Detail</button>
-        <button type="button" class="btn btn-danger">Cart</button>
+        <button type="button"  @click="$router.push(`/detail/${product.id}`)" class="btn btn-success me-2">Detail</button>
+        <RouterLink type="button" to="/cart" class="btn btn-danger">Cart</RouterLink>
       </div>
     </div>
   </div>
