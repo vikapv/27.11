@@ -44,7 +44,9 @@ const updateCount = (id, event) => {
         <div class="row">
             <div class="col text-end">
                 <h3 class="text-end">Total:{{ cartStore.totalSum }}</h3>
-                <button type="button" class="btn me-2 btn-outline-success btn-lg "><i class="bi bi-cart-check"></i>Bue</button>
+                <router-link to="/checkout" class="btn me-2 btn-outline-success btn-lg">
+        <i class="bi bi-cart-check"></i> Оформить заказ
+      </router-link>
             </div>
         </div>
     </div>

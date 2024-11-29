@@ -1,8 +1,9 @@
 <script setup>
+import { useCartStore } from '@/stores/cart';
 import { useProductStore } from '@/stores/product';
 import { useRoute } from 'vue-router';
 
-
+const cartStore = useCartStore();
 const productStore = useProductStore();
 const route = useRoute();
 const product = productStore.findProductById(route.params.id)
@@ -22,7 +23,7 @@ const product = productStore.findProductById(route.params.id)
         <p class="card-text">{{ product.publish_at }}</p>
       </div>
       <div class="card-footer text-enm">
-        <button type="button" class="btn btn-danger">Cart</button>
+        <button type="button"  @click="cartStore.addToCart(product.id)" class="btn btn-danger">Cart</button>
       </div>
     </div>
   </div>
